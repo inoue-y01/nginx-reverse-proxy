@@ -4,6 +4,8 @@ services:
     ports:
       - 8091:80
     volumes:
+      - ./docker/server1/.htpasswd:/etc/nginx/.htpasswd
+      - ./docker/server1/conf.d/:/etc/nginx/conf.d/
       - ./docker/server1/html/index.html:/usr/share/nginx/html/index.html
 
   server2:
@@ -11,6 +13,8 @@ services:
     ports:
       - 8092:80
     volumes:
+      - ./docker/server2/.htpasswd:/etc/nginx/.htpasswd
+      - ./docker/server2/conf.d/:/etc/nginx/conf.d/
       - ./docker/server2/html/index.html:/usr/share/nginx/html/index.html
 
   reverse-proxy:
